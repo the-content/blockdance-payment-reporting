@@ -1,6 +1,5 @@
 import z from "zod"
 import qs from "qs"
-import { FILTER_OPERATIONS } from "@repo/db/const"
 
 /** 定义排序项的 schema */
 export const sortingItemSchema = z.object({
@@ -11,7 +10,7 @@ export const sortingItemSchema = z.object({
 /** 定义过滤项的 schema */
 export const filterItemSchema = z.object({
     id: z.string(),
-    operation: z.enum(FILTER_OPERATIONS.map((item) => item.id)),
+    operation: z.enum(['']),
     value: z.string().optional(),
 })
 
