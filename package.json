@@ -1,0 +1,39 @@
+{
+    "name": "blockdance-reporting",
+    "type": "module",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development bun --watch run ./src/localhost.ts",
+        "dev:sst": "npx sst dev --stage dev",
+        "build:esbuild": "cross-env NODE_ENV=production esbuild ./src/localhost.ts --bundle --platform=node --outdir=dist --format=esm --sourcemap --minify",
+        "build:bun": "cross-env NODE_ENV=production bun run scripts/bun.build.ts",
+        "deploy:sst:dev": "npx sst deploy --stage development",
+        "deploy:sst:prod": "npx sst deploy --stage production",
+        "sst:remove:dev": "npx sst remove --stage development",
+        "db:transaction:studio": "cross-env NODE_ENV=development drizzle-kit studio --config drizzle-payment.config.ts",
+        "db:reporting:studio": "cross-env NODE_ENV=development drizzle-kit studio --config drizzle-reporting.config.ts"
+    },
+    "dependencies": {
+        "@hono/zod-validator": "^0.7.3",
+        "axios": "^1.12.2",
+        "dayjs": "^1.11.18",
+        "drizzle-orm": "^0.44.5",
+        "hono": "^4.9.8",
+        "ioredis": "^5.7.0",
+        "mysql2": "^3.15.0",
+        "qs": "^6.14.0",
+        "uuid": "^13.0.0",
+        "winston": "^3.17.0",
+        "zod": "^4.1.9",
+        "zod-validation-error": "^4.0.2"
+    },
+    "devDependencies": {
+        "@types/aws-lambda": "8.10.152",
+        "@types/node": "^24.5.2",
+        "@types/qs": "^6.14.0",
+        "cross-env": "^10.0.0",
+        "dotenv": "^17.2.2",
+        "drizzle-kit": "^0.31.4",
+        "esbuild": "^0.25.10",
+        "sst": "^3.17.13"
+    }
+}

@@ -1,0 +1,1343 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "mysql",
+  "tables": {
+    "nuvie_dispute_data": {
+      "name": "nuvie_dispute_data",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "upload_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "upload_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_date": {
+          "autoincrement": false,
+          "name": "transaction_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "method_name": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "method_name",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_status": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "dispute_status",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_reason": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "dispute_reason",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_category": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "dispute_category",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "dispute_amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "currency",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bin": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "bin",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quote": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "quote",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sso_order_id": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "sso_order_id",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_uuid": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "order_uuid",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "merchant_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "merchant_id",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "currency_id",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "final_amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "final_amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_created": {
+          "autoincrement": false,
+          "name": "order_created",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "crypto_amount": {
+          "default": "'0.000000'",
+          "autoincrement": false,
+          "name": "crypto_amount",
+          "type": "decimal(16,6)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_status": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_status",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "autoincrement": false,
+          "name": "updated_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "issuer_country": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "issuer_country",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_date": {
+          "autoincrement": false,
+          "name": "dispute_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "nuvie_dispute_data_id": {
+          "name": "nuvie_dispute_data_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "indexes": {
+        "idx_upload_id": {
+          "name": "idx_upload_id",
+          "columns": [
+            "upload_id"
+          ],
+          "isUnique": false
+        },
+        "idx_merchant_id": {
+          "name": "idx_merchant_id",
+          "columns": [
+            "merchant_id"
+          ],
+          "isUnique": false
+        },
+        "idx_transaction_date_merchant_id": {
+          "name": "idx_transaction_date_merchant_id",
+          "columns": [
+            "transaction_date",
+            "merchant_id"
+          ],
+          "isUnique": false
+        },
+        "idx_dispute_date_merchant_id": {
+          "name": "idx_dispute_date_merchant_id",
+          "columns": [
+            "dispute_date",
+            "merchant_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "uk_order_id": {
+          "name": "uk_order_id",
+          "columns": [
+            "order_id"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "nuvie_dispute_file": {
+      "name": "nuvie_dispute_file",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "upload_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "upload_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_date": {
+          "autoincrement": false,
+          "name": "transaction_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "method_name": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "method_name",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_status": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "dispute_status",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_reason": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "dispute_reason",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_category": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "dispute_category",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "dispute_amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "currency",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bin": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "bin",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "status",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fail_reason": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "fail_reason",
+          "type": "varchar(300)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "autoincrement": false,
+          "name": "updated_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "issuer_country": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "issuer_country",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dispute_date": {
+          "autoincrement": false,
+          "name": "dispute_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "nuvie_dispute_file_id": {
+          "name": "nuvie_dispute_file_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "indexes": {
+        "idx_upload_id": {
+          "name": "idx_upload_id",
+          "columns": [
+            "upload_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "uk_order_id": {
+          "name": "uk_order_id",
+          "columns": [
+            "order_id"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "nuvie_fraud_data": {
+      "name": "nuvie_fraud_data",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "upload_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "upload_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "report_date": {
+          "autoincrement": false,
+          "name": "report_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fraud_amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "fraud_amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fraud_currency": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "fraud_currency",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "method_name": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "method_name",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bin": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "bin",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_date": {
+          "autoincrement": false,
+          "name": "transaction_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "issuer_country": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "issuer_country",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sso_order_id": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "sso_order_id",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_uuid": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "order_uuid",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "merchant_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "merchant_id",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "currency_id",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "final_amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "final_amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_created": {
+          "autoincrement": false,
+          "name": "order_created",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "crypto_amount": {
+          "default": "'0.000000'",
+          "autoincrement": false,
+          "name": "crypto_amount",
+          "type": "decimal(16,6)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_status": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_status",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "autoincrement": false,
+          "name": "updated_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quote": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "quote",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "nuvie_fraud_data_id": {
+          "name": "nuvie_fraud_data_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "indexes": {
+        "idx_upload_id": {
+          "name": "idx_upload_id",
+          "columns": [
+            "upload_id"
+          ],
+          "isUnique": false
+        },
+        "idx_merchant_id": {
+          "name": "idx_merchant_id",
+          "columns": [
+            "merchant_id"
+          ],
+          "isUnique": false
+        },
+        "idx_report_date_merchant_id": {
+          "name": "idx_report_date_merchant_id",
+          "columns": [
+            "report_date",
+            "merchant_id"
+          ],
+          "isUnique": false
+        },
+        "idx_transaction_date_merchant_id": {
+          "name": "idx_transaction_date_merchant_id",
+          "columns": [
+            "transaction_date",
+            "merchant_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "uk_order_id": {
+          "name": "uk_order_id",
+          "columns": [
+            "order_id"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "nuvie_fraud_file": {
+      "name": "nuvie_fraud_file",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "upload_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "upload_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "report_date": {
+          "autoincrement": false,
+          "name": "report_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fraud_amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "fraud_amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fraud_currency": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "fraud_currency",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "method_name": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "method_name",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bin": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "bin",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_date": {
+          "autoincrement": false,
+          "name": "transaction_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "issuer_country": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "issuer_country",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "status",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fail_reason": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "fail_reason",
+          "type": "varchar(300)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "autoincrement": false,
+          "name": "updated_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "nuvie_fraud_file_id": {
+          "name": "nuvie_fraud_file_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "indexes": {
+        "idx_upload_id": {
+          "name": "idx_upload_id",
+          "columns": [
+            "upload_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "uk_order_id": {
+          "name": "uk_order_id",
+          "columns": [
+            "order_id"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "nuvie_transaction_data": {
+      "name": "nuvie_transaction_data",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "upload_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "upload_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "date": {
+          "autoincrement": false,
+          "name": "date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "currency",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_result": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "transaction_result",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "method_name": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "method_name",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bin": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "bin",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reason_code": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "reason_code",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quote": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "quote",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sso_order_id": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "sso_order_id",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_uuid": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "order_uuid",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "merchant_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "merchant_id",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "currency_id",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "final_amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "final_amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_created": {
+          "autoincrement": false,
+          "name": "order_created",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "crypto_amount": {
+          "default": "'0.000000'",
+          "autoincrement": false,
+          "name": "crypto_amount",
+          "type": "decimal(16,6)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_status": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_status",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "autoincrement": false,
+          "name": "updated_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_id": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "transaction_id",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "issuer_country": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "issuer_country",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "nuvie_transaction_data_id": {
+          "name": "nuvie_transaction_data_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "indexes": {
+        "idx_upload_id": {
+          "name": "idx_upload_id",
+          "columns": [
+            "upload_id"
+          ],
+          "isUnique": false
+        },
+        "idx_merchant_id": {
+          "name": "idx_merchant_id",
+          "columns": [
+            "merchant_id"
+          ],
+          "isUnique": false
+        },
+        "idx_order_id": {
+          "name": "idx_order_id",
+          "columns": [
+            "order_id"
+          ],
+          "isUnique": false
+        },
+        "idx_date_merchant_trans_result": {
+          "name": "idx_date_merchant_trans_result",
+          "columns": [
+            "date",
+            "merchant_id",
+            "transaction_result"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "uk_unique_transaction_order_result": {
+          "name": "uk_unique_transaction_order_result",
+          "columns": [
+            "transaction_id",
+            "order_id",
+            "transaction_result"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "nuvie_transaction_file": {
+      "name": "nuvie_transaction_file",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "upload_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "upload_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "date": {
+          "autoincrement": false,
+          "name": "date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "amount",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "currency",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_result": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "transaction_result",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "method_name": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "method_name",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bin": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "bin",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "order_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "status",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fail_reason": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "fail_reason",
+          "type": "varchar(300)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "autoincrement": false,
+          "name": "updated_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reason_code": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "reason_code",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_id": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "transaction_id",
+          "type": "varchar(250)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "issuer_country": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "issuer_country",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "nuvie_transaction_file_id": {
+          "name": "nuvie_transaction_file_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "indexes": {
+        "idx_upload_id": {
+          "name": "idx_upload_id",
+          "columns": [
+            "upload_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "uk_unique_transaction_order_result": {
+          "name": "uk_unique_transaction_order_result",
+          "columns": [
+            "transaction_id",
+            "order_id",
+            "transaction_result"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "report_data_record": {
+      "name": "report_data_record",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reference": {
+          "autoincrement": false,
+          "name": "reference",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "type": {
+          "autoincrement": false,
+          "name": "type",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "url": {
+          "autoincrement": false,
+          "name": "url",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "line_count": {
+          "autoincrement": false,
+          "name": "line_count",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "status",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_time": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "created_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "report_data_record_id": {
+          "name": "report_data_record_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "indexes": {
+        "reference_state_index": {
+          "name": "reference_state_index",
+          "columns": [
+            "reference",
+            "status"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "report_quote": {
+      "name": "report_quote",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "from_code": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "from_code",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "from_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "from_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "to_code": {
+          "default": "''",
+          "autoincrement": false,
+          "name": "to_code",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "to_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "to_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "autoincrement": false,
+          "name": "updated_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quote": {
+          "default": "'0.0000'",
+          "autoincrement": false,
+          "name": "quote",
+          "type": "decimal(13,4)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "report_quote_id": {
+          "name": "report_quote_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "uk_from_code_to_code": {
+          "name": "uk_from_code_to_code",
+          "columns": [
+            "from_code",
+            "to_code"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    }
+  },
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {
+      "report_data_record": {
+        "columns": {
+          "created_time": {
+            "isDefaultAnExpression": true
+          }
+        }
+      }
+    },
+    "indexes": {}
+  }
+}
